@@ -1,28 +1,85 @@
-import { UserDetails, UserType } from "@/types/type"
-import { FirebaseApp } from "firebase/app"
+import { IChat, ICurrentChatContext, IPortfolioDetails } from "@/types/type"
 import { create } from "zustand"
 
-interface Store {
-    user: UserDetails
-    updateUser: (user: UserDetails) => void
+export interface Store {
+    portfolio: IPortfolioDetails
+    chat: IChat[]
+    currentChat: ICurrentChatContext
+    userId: string
+
+    updatePortfolio: (portfolio: IPortfolioDetails) => void
+    setCurrentChat: (currentChat: ICurrentChatContext) => void
+    addChat: (chat: IChat) => void
+    clearChat: () => void
 }
 
-const useStore = create<Store>((set) => ({
-    user: {
-        userType: UserType.NONE
+export const useAppStore = create<Store>((set => ({
+    portfolio: {
+        name: "",
+        headline: "",
+        logo: {
+            url: ""
+        },
+        contact: {
+            email: "",
+            linkedin: ""
+        },
+        about: {
+            description: "",
+            "description-short": ""
+        },
+        current_study: [],
+        work_experience: [],
+        projects: [],
+        resume: ""
+    } as IPortfolioDetails,
+    chat: [
+        {
+            from: "agent",
+            message: `Hi there! Mushfiqah this side 😊
+You\'re now chatting with an AI version of me. Feel free to ask anything about my resume—whether it\'s my work experience, education, skills, hobbies, or even fun facts!
+Just a heads-up: this AI has a few prompt limits per minute to prevent overload, but you can ask questions like:
+
+- What are your current studies?
+
+- What kind of work have you done?
+
+- What are your key skills?
+
+- What's your visa status? `,
+            timestamp: new Date().toISOString()
+        }
+    ] as IChat[],
+    userId: Math.random().toString(36).slice(2),
+    currentChat: {
+        isFetching: false,
+        text: ""
     },
-    updateUser: (user: UserDetails) => set({ user })
-}))
-
-interface FirebaseStore {
-    firebase: FirebaseApp | null
-    setFirebase: (firebase: FirebaseApp) => void
-}
-
-const firebaseStore = create<FirebaseStore>((set) => ({
-    firebase: null,
-    setFirebase: (firebase: FirebaseApp) => set({ firebase })
-}))
-
-export { useStore, firebaseStore }
-
+    setCurrentChat: (currentChat: ICurrentChatContext) => {
+        set((state : Store) => ({
+            ...state,
+            currentChat
+        }))
+    },
+    updatePortfolio: (portfolio: IPortfolioDetails) => { 
+        set((state : Store) => ({
+            ...state,
+            portfolio: {
+                ...state.portfolio,
+                ...portfolio
+            }
+        }))
+    },
+    addChat: (chat: IChat) => {
+        set((state : Store) => ({
+            ...state,
+            chat: [...state.chat, chat]
+        }))
+    },
+    clearChat: () => {
+        set((state : Store) => ({
+            ...state,
+            chat: []
+        }))
+    }
+} as Store)));
