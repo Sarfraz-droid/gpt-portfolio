@@ -8,6 +8,7 @@ import { UserCard } from "../card/UserCard";
 import { Chat } from "../chat/Chat";
 import { IPortfolioDetails } from "@/types/type";
 import { useAppStore } from "@/store/store";
+import Image from "next/image";
 
 type IProps = {
     data: IPortfolioDetails;
@@ -21,15 +22,7 @@ export const HomeUI = ({ data }: IProps) => {
 
     useEffect(() => {
         updatePortfolio(data);
-
-        const image = new Image();
-
-        image.src = `https://avatar.iran.liara.run/public?username=${userId}`;
-
-        image.onload = () => {
-            console.log("Image loaded");
-        };
-    }, [data, updatePortfolio, userId]);
+    }, [data, updatePortfolio]);
 
     const handleSubmitChat = async () => {
         try {
@@ -187,9 +180,8 @@ export const HomeUI = ({ data }: IProps) => {
                 </AnimatePresence>
             </div>
 
-            <img src={`https://avatar.iran.liara.run/public?username=${userId}`} 
-                className="hidden"
-            />
+            <Image src={`https://avatar.iran.liara.run/public?username=${userId}`}
+            className="hidden" alt={""}            />
         </main>
     );
 };
