@@ -181,7 +181,7 @@ export const HomeUI = ({ data }: IProps) => {
             </div>
 
             <Image src={`https://avatar.iran.liara.run/public?username=${userId}`}
-            className="hidden" alt={""}            />
+            className="hidden" alt={""}   width={0} height={0}         />
         </main>
     );
 };
