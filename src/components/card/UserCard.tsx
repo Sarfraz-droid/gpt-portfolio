@@ -225,7 +225,7 @@ export const UserCard = ({ data }: IProps) => {
                                                 Resume{" "}
                                                 <Download className="w-4 h-4" />
                                             </button>
-                                            <button className="mt-8 px-6 py-2 bg-transparent text-white rounded-lg font-bold transform hover:-translate-y-1 transition duration-400 md:hidden"
+                                            <button className="mt-4 px-6 py-2 bg-transparent text-white rounded-lg font-bold transform hover:-translate-y-1 transition duration-400 md:hidden"
                                                 onClick={() => {
                                                     setShowSectionOne(false);
                                                 }}
@@ -338,7 +338,7 @@ export const UserCard = ({ data }: IProps) => {
                                                 )}
                                             </ul>
                                         </section>
-                                        <button className="mt-8 px-6 py-2 bg-transparent text-white rounded-lg font-bold transform hover:-translate-y-1 transition duration-400 md:hidden"
+                                        <button className="px-6 py-2 bg-transparent text-white rounded-lg font-bold transform hover:-translate-y-1 transition duration-400 md:hidden"
                                                 onClick={() => {
                                                     setShowSectionTwo(false);
                                                 }}
