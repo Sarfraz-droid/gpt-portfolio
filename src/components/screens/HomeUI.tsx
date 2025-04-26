@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 "use client";
 import React, { useEffect, useState } from "react";
 
@@ -8,7 +9,6 @@ import { UserCard } from "../card/UserCard";
 import { Chat } from "../chat/Chat";
 import { IPortfolioDetails } from "@/types/type";
 import { useAppStore } from "@/store/store";
-import Image from "next/image";
 
 type IProps = {
     data: IPortfolioDetails;
@@ -180,7 +180,7 @@ export const HomeUI = ({ data }: IProps) => {
                 </AnimatePresence>
             </div>
 
-            <Image src={`https://avatar.iran.liara.run/public?username=${userId}`}
+            <img src={`https://avatar.iran.liara.run/public?username=${userId}`}
             className="hidden" alt={""}   width={0} height={0}         />
         </main>
     );
