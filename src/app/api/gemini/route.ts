@@ -23,7 +23,7 @@ export async function POST(
         }, { status: 500 })
     }
 
-    const { success } = await rateLimit.limit('mushfiqah-portfolio-gemini-api');
+    const { success } = await rateLimit.limit(process.env.RATE_LIMIT_INDEX || 'gemini');
     if (!success) {
       return Response.json({
         error: "Rate limit exceeded. Try again later.",
@@ -33,7 +33,7 @@ export async function POST(
     
     const body = await req.json();
 
-    const promptDetails = await fetch('https://3yxxme9l.api.sanity.io/v2025-04-26/data/query/production?query=*%5B_type+%3D%3D+%27promptInfo%27%5D+%7B%0A++prompt%0A%7D%5B0%5D&perspective=drafts')
+    const promptDetails = await fetch(process.env.PROMPT_DATA_URL || '')
 
     const promptData = await promptDetails.json();
 
@@ -43,7 +43,7 @@ export async function POST(
     `
 
     const response = await ai.models.generateContent({
-        model: "gemini-2.0-flash-lite",
+        model: process.env.GEMINI_MODEL || 'gemini-2.0-flash-lite',
         contents: FINAL_PROMPT,
       });
       

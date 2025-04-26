@@ -17,12 +17,13 @@ type IProps = {
 export const HomeUI = ({ data }: IProps) => {
     const [showChat, setShowChat] = useState(false);
     const [showChatUI, setShowChatUI] = useState(false);
-    const { updatePortfolio, addChat, currentChat, userId, setCurrentChat } =
+    const {  currentChat, userId, updatePortfolio, addChat, setUserId, setCurrentChat } =
         useAppStore();
 
     useEffect(() => {
         updatePortfolio(data);
-    }, [data, updatePortfolio]);
+        setUserId()
+    }, [data, setUserId, updatePortfolio]);
 
     const handleSubmitChat = async () => {
         try {

@@ -7,6 +7,7 @@ export interface Store {
     currentChat: ICurrentChatContext
     userId: string
 
+    setUserId: (userId?: string) => void
     updatePortfolio: (portfolio: IPortfolioDetails) => void
     setCurrentChat: (currentChat: ICurrentChatContext) => void
     addChat: (chat: IChat) => void
@@ -52,10 +53,16 @@ Just a heads-up: this AI has a few prompt limits per minute to prevent overload,
             timestamp: new Date().toISOString()
         }
     ] as IChat[],
-    userId: avatars[Math.floor(Math.random() * avatars.length)],
+    userId: '',
     currentChat: {
         isFetching: false,
         text: ""
+    },
+    setUserId: (userId?: string) => {
+        set((state : Store) => ({
+            ...state,
+            userId: userId || avatars[Math.floor(Math.random() * avatars.length)]
+        }))
     },
     setCurrentChat: (currentChat: ICurrentChatContext) => {
         set((state : Store) => ({
