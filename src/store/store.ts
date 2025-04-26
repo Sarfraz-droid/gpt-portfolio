@@ -13,6 +13,8 @@ export interface Store {
     clearChat: () => void
 }
 
+const avatars = ["Liam", "Zara", "Mateo", "Isla", "Jasper", "Aria", "Kai", "Nova", "Elio", "Freya"];
+
 export const useAppStore = create<Store>((set => ({
     portfolio: {
         name: "",
@@ -32,7 +34,7 @@ export const useAppStore = create<Store>((set => ({
         work_experience: [],
         projects: [],
         resume: ""
-    } as IPortfolioDetails,
+    } as unknown as IPortfolioDetails,
     chat: [
         {
             from: "agent",
@@ -50,7 +52,7 @@ Just a heads-up: this AI has a few prompt limits per minute to prevent overload,
             timestamp: new Date().toISOString()
         }
     ] as IChat[],
-    userId: Math.random().toString(36).slice(2),
+    userId: avatars[Math.floor(Math.random() * avatars.length)],
     currentChat: {
         isFetching: false,
         text: ""
