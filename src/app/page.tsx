@@ -1,5 +1,6 @@
 import { HomeUI } from "@/components/screens/HomeUI";
 
+export const revalidate = 60
 
 export default async function Home() {
 
