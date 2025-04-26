@@ -46,7 +46,7 @@ export const UserCard = ({ data }: IProps) => {
                     proximity={64}
                     inactiveZone={0.01}
                 />
-                <div className="border-0.75 relative flex h-full flex-col justify-between gap-6 overflow-hidden rounded-xl p-6 md:p-6 dark:shadow-[0px_0px_27px_0px_#2D2D2D] bg-background">
+                <div className="border-0.75 relative flex h-full flex-col justify-between gap-6 overflow-hidden rounded-xl p-4 md:p-6 dark:shadow-[0px_0px_27px_0px_#2D2D2D] bg-background">
                     <AnimatePresence
                         onExitComplete={() => {
                             setShowSectionTwo(true);
@@ -217,7 +217,7 @@ export const UserCard = ({ data }: IProps) => {
                                             <button className="shadow-[inset_0_0_0_2px_#616467] text-black px-8 py-2 rounded-full tracking-widest uppercase font-bold bg-transparent hover:bg-[#616467] hover:text-white dark:text-neutral-200 transition duration-200 flex gap-2 items-center cursor-pointer"
                                             onClick={() => {
                                                 window.open(
-                                                    data.resume,
+                                                    data.resume?.url,
                                                     "_blank"
                                                 );
                                             }}

@@ -151,7 +151,7 @@ export const HomeUI = ({ data }: IProps) => {
 
                 <AnimatePresence>
                     <motion.div
-                        className="mt-2 md:mt-8 "
+                        className="mt-2 md:mt-8 transition-all duration-300"
                         initial={{
                             opacity: 0,
                             y: 20

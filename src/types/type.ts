@@ -23,7 +23,9 @@ export type IPortfolioDetails = {
         description: string;
         url: string;
     }[];
-    resume: string;
+    resume: {
+        url: string;
+    }
 }
 
 
