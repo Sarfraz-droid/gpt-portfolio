@@ -87,7 +87,7 @@ export const HomeUI = ({ data }: IProps) => {
     };
 
     return (
-        <main className="max-h-screen flex flex-col items-center justify-center p-4 overflow-hidden">
+        <main className="max-h-[100dvh] flex flex-col items-center justify-center md:p-4 overflow-hidden">
             <div
                 className={cn(
                     "opacity-20",
@@ -101,7 +101,7 @@ export const HomeUI = ({ data }: IProps) => {
             <div className="pointer-events-none absolute inset-0 flex items-center justify-center bg-white [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)] dark:bg-black"></div>
 
             <div className="w-full max-w-5xl mx-auto relative h-[100vh] flex flex-col md:py-24">
-                <div className="h-[70vh] md:h-[80vh]">
+                <div className="h-[75vh] md:h-[80vh]">
                     <AnimatePresence
                         initial={false}
                         onExitComplete={() => {
@@ -112,7 +112,7 @@ export const HomeUI = ({ data }: IProps) => {
                             <>
                                 <UserCard data={data} />
                                 <motion.div
-                                    className="text-center text-gray-500 my-8"
+                                    className="text-center text-zinc-400 my-8"
                                     initial={{
                                         opacity: 0,
                                         y: -20
@@ -152,7 +152,7 @@ export const HomeUI = ({ data }: IProps) => {
 
                 <AnimatePresence>
                     <motion.div
-                        className="mt-2 md:mt-8 transition-all duration-300"
+                        className="h-[15vh] md:h-full mt-2 md:mt-8 transition-all duration-300"
                         initial={{
                             opacity: 0,
                             y: 20

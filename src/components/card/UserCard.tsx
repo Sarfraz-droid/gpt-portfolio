@@ -34,7 +34,7 @@ export const UserCard = ({ data }: IProps) => {
                     y: 20
                 }}
                 transition={{
-                    duration: 1
+                    duration: 0.3
                 }}
             >
                 <GlowingEffect
@@ -81,7 +81,7 @@ export const UserCard = ({ data }: IProps) => {
                                 <h1 className="text-lg md:text-2xl font-bold font-mono">
                                     {data.name}
                                 </h1>
-                                <p className="text-sm md:text-base text-gray-600 text-center md:text-left mt-1 mb-4">
+                                <p className="text-sm md:text-base text-zinc-300 text-center md:text-left mt-1 mb-4">
                                     {data.headline}
                                 </p>
                                 <section className="hidden md:block">
@@ -92,10 +92,10 @@ export const UserCard = ({ data }: IProps) => {
                                         <span className="font-medium">
                                             Imperial College Business School                                        
                                         </span>
-                                        <span className="text-sm text-gray-200">
+                                        <span className="text-sm text-zinc-300">
                                             Msc Strategic Marketing
                                         </span>
-                                        <span className="text-gray-600">
+                                        <span className="text-zinc-400">
                                             2020-2021
                                         </span>
                                     </div>
@@ -139,10 +139,10 @@ export const UserCard = ({ data }: IProps) => {
                                     <h2 className="text-lg font-semibold md:mb-2">
                                         About Me
                                     </h2>
-                                    <p className="text-gray-600 text-sm hidden md:block">
+                                    <p className="text-zinc-300 text-sm hidden md:block">
                                         {data.about.description}
                                     </p>
-                                    <p className="text-center text-gray-600 text-sm md:hidden block">
+                                    <p className="text-center text-zinc-300 text-sm md:hidden block">
                                         {data.about["description-short"]}
                                     </p>
                                 </section>
@@ -161,7 +161,7 @@ export const UserCard = ({ data }: IProps) => {
                                                             <span className="font-medium">
                                                                 {work.title}
                                                             </span>
-                                                            <span className="text-gray-600">
+                                                            <span className="text-zinc-300">
                                                                {" "}- {work.from} to{" "}
                                                                 {work.to}
                                                             </span>
@@ -200,7 +200,7 @@ export const UserCard = ({ data }: IProps) => {
                                                                     {project.title}
                                                                 </span>
                                                                 {" "}-{" "}
-                                                                <span className="text-gray-600">
+                                                                <span className="text-zinc-300">
                                                                     {
                                                                         project.description
                                                                     }
@@ -270,10 +270,10 @@ export const UserCard = ({ data }: IProps) => {
                                         <span className="font-medium">
                                             Imperial College Business School                                        
                                         </span>
-                                        <span className="text-xs text-gray-200">
+                                        <span className="text-xs text-zinc-400">
                                             Msc Strategic Marketing
                                         </span>
-                                        <span className="text-gray-600">
+                                        <span className="text-zinc-300">
                                             2020-2021
                                         </span>
                                     </div>
@@ -289,7 +289,7 @@ export const UserCard = ({ data }: IProps) => {
                                                             <span className="font-medium">
                                                                 {work.title}
                                                             </span>
-                                                            <span className="text-gray-600">
+                                                            <span className="text-zinc-300">
                                                                 - {work.from} to{" "}
                                                                 {work.to}
                                                             </span>
@@ -326,7 +326,7 @@ export const UserCard = ({ data }: IProps) => {
                                                                     {project.title}
                                                                 </span>
                                                                 {" "}-{" "}
-                                                                <span className="text-gray-600">
+                                                                <span className="text-zinc-300">
                                                                     {
                                                                         project.description
                                                                     }

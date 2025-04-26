@@ -32,7 +32,7 @@ export const Chat = (props : IChat) => {
                     y: 20
                 }}
                 transition={{
-                    duration: 1
+                    duration: 0.3
                 }}
             >
                 <div className="relative h-full rounded-2xl border p-2 md:rounded-3xl md:p-3">
@@ -45,8 +45,8 @@ export const Chat = (props : IChat) => {
                         proximity={64}
                         inactiveZone={0.01}
                     />
-                    <div className="border-0.75 relative flex h-full flex-col justify-between gap-6 overflow-hidden rounded-xl px-2 md:p-6  bg-background">
-                        <div className="flex items-center mb-4">
+                    <div className="border-0.75 relative flex h-full flex-col justify-between gap-0 md:gap-6 overflow-hidden rounded-xl px-2 md:p-6  bg-background">
+                        <div className="flex items-center mb-2 md:mb-4">
                             <Button
                                 variant="ghost"
                                 size="icon"
