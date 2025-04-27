@@ -6,19 +6,27 @@ import { GlowingEffect } from "../ui/glowing-effect";
 import { IPortfolioDetails } from "@/types/type";
 import { Separator } from "../ui/separator";
 import clsx from "clsx";
+import { isMobile } from "react-device-detect"
 
 type IProps = {
   data: IPortfolioDetails;
+  height: number;
+  width: number;
 };
 
-export const UserCard = ({ data }: IProps) => {
+export const UserCard = ({ data, height }: IProps) => {
   const [showSectionOne, setShowSectionOne] = React.useState(true);
   const [showSectionTwo, setShowSectionTwo] = React.useState(false);
+
+    
 
   return (
     <>
       <motion.div
-        className="relative h-[75vh] md:h-[70vh] rounded-2xl border p-2 md:rounded-3xl md:p-3"
+        className="relative md:h-[70dvh] rounded-2xl border p-2 md:rounded-3xl md:p-3"
+        style={{
+            height: isMobile ? `calc(100dvh - ${height + 48}px)` : '70dvh'
+        }}
         initial={{
           opacity: 0,
           y: -20,
@@ -44,7 +52,7 @@ export const UserCard = ({ data }: IProps) => {
           proximity={64}
           inactiveZone={0.01}
         />
-        <div className="border-0.75 relative flex h-full flex-col justify-between gap-6 overflow-hidden rounded-xl p-4 md:p-6 dark:shadow-[0px_0px_27px_0px_#2D2D2D] bg-background">
+        <div className="border-0.75 relative flex h-full flex-col justify-between gap-6 overflow-auto rounded-xl p-4 md:p-6 dark:shadow-[0px_0px_27px_0px_#2D2D2D] bg-background">
           <AnimatePresence
             onExitComplete={() => {
               setShowSectionTwo(true);

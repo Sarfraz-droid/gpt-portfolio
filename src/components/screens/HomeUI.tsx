@@ -9,6 +9,7 @@ import { Chat } from "../chat/Chat";
 import { IPortfolioDetails } from "@/types/type";
 import { useAppStore } from "@/store/store";
 import Image from "next/image";
+import { useElementSize } from "@mantine/hooks";
 
 type IProps = {
   data: IPortfolioDetails;
@@ -25,6 +26,8 @@ export const HomeUI = ({ data }: IProps) => {
     setUserId,
     setCurrentChat,
   } = useAppStore();
+  const { height, ref, width } = useElementSize();
+
 
   useEffect(() => {
     updatePortfolio(data);
@@ -107,8 +110,8 @@ export const HomeUI = ({ data }: IProps) => {
       {/* Radial gradient for the container to give a faded look */}
       <div className="pointer-events-none absolute inset-0 flex items-center justify-center bg-white [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)] dark:bg-black"></div>
 
-      <div className="w-full max-w-5xl mx-auto relative h-[100vh] flex flex-col md:py-24">
-        <div className="h-[75vh] md:h-[70vh]">
+      <div className="w-full max-w-5xl mx-auto relative h-[100dvh] flex flex-col md:py-24 overflow-hidden">
+        <div className="h-full md:h-[70dvh] p-2 md:p-0">
           <AnimatePresence
             initial={false}
             onExitComplete={() => {
@@ -117,7 +120,10 @@ export const HomeUI = ({ data }: IProps) => {
           >
             {!showChat && (
               <>
-                <UserCard data={data} />
+                <UserCard data={data}
+                          height={height}
+                          width={width}
+                />
               </>
             )}
           </AnimatePresence>
@@ -132,6 +138,9 @@ export const HomeUI = ({ data }: IProps) => {
                 onBackClick={() => {
                   setShowChatUI(false);
                 }}
+                height={height}
+                width={width}
+
               />
             )}
           </AnimatePresence>
@@ -139,7 +148,7 @@ export const HomeUI = ({ data }: IProps) => {
 
         <AnimatePresence>
           <motion.div
-            className="h-[15vh] md:h-auto mt-2 md:mt-8 transition-all duration-300"
+            className="absolute bottom-8 px-2 md:p-0 w-full md:block md:h-auto mt-2 md:mt-8 transition-all duration-300"
             initial={{
               opacity: 0,
               y: 20,
@@ -155,6 +164,7 @@ export const HomeUI = ({ data }: IProps) => {
             transition={{
               duration: 1,
             }}
+            ref={ref}
           >
             <PlaceholdersAndVanishInput
               onClick={() => {

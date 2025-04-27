@@ -6,9 +6,12 @@ import { Button } from "../ui/button";
 import { ChatBox } from "./ChatBox";
 import { useAppStore } from "@/store/store";
 import { ChatBoxLoader } from "./ChatBoxLoader";
+import { isMobile } from "react-device-detect";
 
 type IChat = {
   onBackClick: () => void;
+  height: number;
+  width: number;
 };
 
 export const Chat = (props: IChat) => {
@@ -17,7 +20,7 @@ export const Chat = (props: IChat) => {
   return (
     <>
       <motion.div
-        className="h-[75vh] md:h-[70vh] w-full flex-1 flex flex-col font-mono"
+        className="w-full flex-1 flex flex-col font-mono"
         initial={{
           opacity: 0,
           y: 20,
@@ -32,6 +35,9 @@ export const Chat = (props: IChat) => {
         }}
         transition={{
           duration: 0.3,
+        }}
+        style={{
+            height: isMobile ? `calc(100dvh - ${props.height + 48}px)` : '70dvh'
         }}
       >
         <div className="relative h-full rounded-2xl border p-2 md:rounded-3xl md:p-3">

@@ -136,3 +136,7 @@
 .num-counter::after {
   content: counter(num);
 }
+
+@viewport {
+  viewport-fit: cover;
+}

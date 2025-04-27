@@ -205,6 +205,7 @@ export function PlaceholdersAndVanishInput({
                 ref={canvasRef}
             />
             <input
+                
                 onChange={(e) => {
                     if (!animating) {
                         setValue(e.target.value);
@@ -237,7 +238,7 @@ export function PlaceholdersAndVanishInput({
                 value={value}
                 type="text"
                 className={cn(
-                    "relative text-sm sm:text-base z-50 border-none dark:text-white bg-transparent text-black h-full rounded-full focus:outline-none focus:ring-0 pl-4 sm:pl-5 pr-20 w-full",
+                    "relative text-base z-50 border-none dark:text-white bg-transparent text-black h-full rounded-full focus:outline-none focus:ring-0 pl-4 sm:pl-5 pr-20 w-full",
                     animating && "text-transparent dark:text-transparent"
                 )}
             />
